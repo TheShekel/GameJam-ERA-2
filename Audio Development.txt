@@ -2,11 +2,11 @@ lBG Music - 2 music
 GameOver Music - done
 Booss Music - done
 Victory music - done
-
+main menue music -
 Shooting SFX - explode,lazer,double lazer,electric,fireball, energy ball
-Medium Enemy Shooting SFX -
-Large enemy Shooting SFX -
-Boss shooting SFX - 
+Medium Enemy Shooting SFX -done
+Large enemy Shooting SFX - dnoe
+Boss shooting SFX - done
 
 FastForward SFX - done
 Player Damaged SFX - done
