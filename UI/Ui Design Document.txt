@@ -1,0 +1,4 @@
+3 icons track the player's health. 
+These icons are in the top right, near where the player would be looking, and they should be "health" shaped so it is obvious that it is health.
+Top left should be a scoreboard, keeping track of player score.
+Each time an enemy dies, show how much score they gained in floating-fading text.

@@ -1,7 +1,15 @@
-BG - Music
-Shooting SFX
-FastForward SFX
-Damage SFX
-Booss Music SFX
-GameOver Music
+lBG Music - 2 music
+GameOver Music - done
+Booss Music - done
+Victory music - done
 
+Shooting SFX - explode,lazer,double lazer,electric,fireball, energy ball
+Medium Enemy Shooting SFX -
+Large enemy Shooting SFX -
+Boss shooting SFX - 
+
+FastForward SFX - done
+Player Damaged SFX - 
+Enemy Damaged SFX -
+
+Engine hum for the spaceship - done

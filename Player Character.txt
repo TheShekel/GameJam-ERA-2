@@ -1,5 +1,0 @@
-Player is stationary.
-Camera will remain stationary.
-Fixed player movement boundaries.
-Bullet Prefabs (decrease currentHealth from health Prefab. Either despawns enemies or GameOver's player.) Bullet speed, hit box.
-Spawn Bullets.
