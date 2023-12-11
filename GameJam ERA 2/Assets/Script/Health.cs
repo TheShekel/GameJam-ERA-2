@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
@@ -24,5 +25,12 @@ public class Health : MonoBehaviour
         {
             currenthealth = 0;
         }
+
+        if (currenthealth == 0)
+        {
+            OnDeath.Invoke();
+        }
     }
+
+    public UnityEvent OnDeath;
 }

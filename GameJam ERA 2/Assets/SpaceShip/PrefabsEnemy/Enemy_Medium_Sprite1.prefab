@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2954918654280582429}
   - component: {fileID: 2563096189003823387}
   - component: {fileID: -826079037814685565}
+  - component: {fileID: -4345279615341021702}
   m_Layer: 0
   m_Name: Enemy_Medium_Sprite1
   m_TagString: Untagged
@@ -209,3 +210,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currenthealth: 3
   MaxHealth: 3
+--- !u!114 &-4345279615341021702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1787468554101113774}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c81d894a3c237d14eb6e3bbebb45b3ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontalspeed: 0
+  healthDecrease: 1

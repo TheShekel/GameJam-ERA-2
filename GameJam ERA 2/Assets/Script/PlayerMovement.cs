@@ -4,8 +4,10 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Timers;
 using System.Xml.Serialization;
+using Unity.VisualScripting;
 using UnityEditor.Tilemaps;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -26,7 +28,22 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 location;
     public Vector3 size;
     private Collider2D col;
-    public int health = 3;
+    
+    [SerializeField]
+    private float currenthealth;
+
+    [SerializeField]
+    private float MaxHealth;
+
+    [SerializeField]
+    private float invincibilityDuration;
+
+    private InvincibilityController invincibilityController;
+
+    private void Awake()
+    {
+        invincibilityController = GetComponent<InvincibilityController>();
+    }
     // Start is called before the first frame update
     void Start()
     {
@@ -65,37 +82,21 @@ public class PlayerMovement : MonoBehaviour
         {
             SpawnBullet();
         }
-        PlayerHit(isPlayerInvincible);
     }
 
-
-    void OnCollisionEnter2D(Collision2D collision)
+    public bool IsInvincible { get; set; }
+    
+    public void StartInvincibility(float invincibilityDuration)
     {
-        if (isPlayerInvincible)
-        {
-            Destroy(collision.gameObject);
-            
-        }
-        if (collision.gameObject.tag == "Bullet" && !isPlayerInvincible ||
-            collision.gameObject.tag == "Enemy" && !isPlayerInvincible)
-        {
-            isPlayerInvincible = true;
-            Debug.Log("hit");
-            health -= 1;
-            Destroy(collision.gameObject);
-
-        }
-
+        StartInvincibility(invincibilityDuration);
     }
 
     private void SpawnBullet()
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            
             Instantiate(bullet, new Vector3(location.x + size.x + 0.1f, location.y, 0), Quaternion.identity);
             isBulletCoolDown = true;
-
         }
     }
     private void CanSpawnBullet()
@@ -111,24 +112,74 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void counter()
+    /*private void OnCollisionEnter2D(Collision2D collision)
     {
-        invincibleTimer -= Time.deltaTime;
+        if (isPlayerInvincible)
+            {
+                Destroy(collision.gameObject);
+
+            }
+            if (collision.gameObject.tag == "Bullet" && !isPlayerInvincible ||
+                collision.gameObject.tag == "Enemy" && !isPlayerInvincible)
+            {
+                isPlayerInvincible = true;
+                yield return new WaitForSeconds(invincibleTimer);
+                Debug.Log("hit");
+                currenthealth -= 1;
+                Destroy(collision.gameObject);
+
+            }
+    }*/
+
+    private void PlayerHit(float invincibilityDuration)
+    {
+        StartCoroutine(InvincibilityCoroutine(invincibilityDuration));
     }
 
-    private void PlayerHit(bool playerHit)
+    private IEnumerator InvincibilityCoroutine(float invincibilityDuration)
     {
-        if (playerHit)
+        isPlayerInvincible = true;
+        yield return new WaitForSeconds(invincibilityDuration);
+        isPlayerInvincible = false;
+    }
+
+    private void Hit(float hitAmount)
+    { 
+
+        if (currenthealth == 0)
         {
-            invincibleTimer -= Time.deltaTime;
-            if (invincibleTimer < 0)
-            {
-                player.GetComponent<SpriteRenderer>().enabled = true;
-                invincibleTimer = 2.0f;
-                isPlayerInvincible = false;
-            }
+            return;
+        }
+
+        if (isPlayerInvincible)
+        {
+            return;
+        }
+
+        currenthealth -= hitAmount;
+
+        if (currenthealth < 0)
+        {
+            currenthealth = 0;
+        }
+
+        if (currenthealth == 0)
+        {
+            OnDeath.Invoke();
+        }
+        else
+        {
+            OnDamaged.Invoke();
         }
     }
 
+    public UnityEvent OnDeath;
 
+    public UnityEvent OnDamaged;
+
+
+}
+
+internal class InvincibilityController
+{
 }
