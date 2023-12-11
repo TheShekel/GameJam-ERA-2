@@ -1,0 +1,4 @@
+Movement to Left.
+Small Enemies - Move acros the scene in waves, moves fast, die in 1 hits.
+Medium enemies - Spawn in pairs, fire to the left, moves medium, die in 3 hits.
+Large - Solo, fires at enemy, moves slowly, die in 6 hits.
