@@ -1,4 +1,4 @@
-Create Player Character (movement, shooting, fast forward, Three lives System)
+Create Player Character (movement, shooting, fast forward, Three lives System) - Hualiang
 Create Boolet
 Create Enemy Class
 Create small enemy
