@@ -1,4 +1,4 @@
-Decide how enemies should spawn. (small in packs, medium in pairs etc.)
+Decide how enemies should spawn. (small in packs, medium in pairs etc.) - Jake
 When should the boss spawn (based on time, score, etc.) - Jake
 Decide how the scoring systm works. (Code this) - Jake
 Decide on how the player should move (how responsive the player character moves, how fast they shoot.) - Jacob
