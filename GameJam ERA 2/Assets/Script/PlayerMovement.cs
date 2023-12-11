@@ -1,11 +1,13 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Threading;
+using System.Timers;
 using System.Xml.Serialization;
 using UnityEditor.Tilemaps;
 using UnityEngine;
 
-public class EnemyMovement : MonoBehaviour
+public class PlayerMovement : MonoBehaviour
 {
     public float speed;
     private  Rigidbody2D rb2d;
@@ -15,8 +17,8 @@ public class EnemyMovement : MonoBehaviour
     public GameObject player;
     public float bulletSpawnSpeed = 1.0f;
     private bool isBulletCoolDown;
-    private bool isPlayerInvincible;
-    private float invincibleTimer = 2.0f;
+    public bool isPlayerInvincible;
+    public float invincibleTimer = 2.0f;
     bool isCollideWall;
     //private float a;
     private Vector3 location;
@@ -108,17 +110,40 @@ public class EnemyMovement : MonoBehaviour
         }
     }
 
+    private void counter()
+    {
+        invincibleTimer -= Time.deltaTime;
+    }
+
     private void PlayerHit(bool playerHit)
     {
         if (playerHit)
         {
-            invincibleTimer -= Time.deltaTime;
+            //invincibleTimer -= Time.deltaTime;
+            while ((invincibleTimer -= Time.deltaTime) > 0)
+            {
+                float counter = 0.5f;
+                player.GetComponent<SpriteRenderer>().enabled = false;
+                counter -= Time.deltaTime;
+                player.GetComponent<SpriteRenderer>().enabled = true;
 
+            }
             if (invincibleTimer < 0)
             {
+                player.GetComponent<SpriteRenderer>().enabled = true;
                 invincibleTimer = 2.0f;
                 isPlayerInvincible = false;
             }
         }
+/*        while (player.invincibleTimer > 0)
+        {
+            float counter = 0.5f;
+            player.GetComponent<SpriteRenderer>().enabled = false;
+            counter -= Time.deltaTime;
+            player.GetComponent<SpriteRenderer>().enabled = true;
+
+        }*/
     }
+
+
 }
