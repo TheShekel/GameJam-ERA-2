@@ -9,7 +9,7 @@ Large enemy Shooting SFX -
 Boss shooting SFX - 
 
 FastForward SFX - done
-Player Damaged SFX - 
+Player Damaged SFX - done
 Enemy Damaged SFX -
 
 Engine hum for the spaceship - done
