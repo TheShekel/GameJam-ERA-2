@@ -1,5 +1,6 @@
 Create Player Character (movement, shooting, fast forward, Three lives System)
 Create Boolet
+Create Enemy Class
 Create small enemy
 Create medium enemy
 Create large enemy
