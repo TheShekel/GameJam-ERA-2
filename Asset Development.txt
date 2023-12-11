@@ -10,3 +10,5 @@ Fastforward VFX
 Bullet VFX
 Enemy Attack VFX
 UI
+Create 3 frame animations for movement in enemies, player shooting, player movement.
+
