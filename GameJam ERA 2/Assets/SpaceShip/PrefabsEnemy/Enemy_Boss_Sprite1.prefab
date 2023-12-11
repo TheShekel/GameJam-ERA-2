@@ -13,6 +13,8 @@ GameObject:
   - component: {fileID: 6955639090233650658}
   - component: {fileID: 5717468153918978145}
   - component: {fileID: 8701545068071512966}
+  - component: {fileID: 2289662522737730476}
+  - component: {fileID: -3952184799553542061}
   m_Layer: 0
   m_Name: Enemy_Boss_Sprite1
   m_TagString: Untagged
@@ -180,3 +182,30 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &2289662522737730476
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9167438564625573050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c585954cd180244aa0f935ec6d11e27, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreForKill: 25
+--- !u!114 &-3952184799553542061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9167438564625573050}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1313a5d40cf919a4b813571bed74f214, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currenthealth: 25
+  MaxHealth: 25

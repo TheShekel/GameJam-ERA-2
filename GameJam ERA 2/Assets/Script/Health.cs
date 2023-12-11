@@ -5,17 +5,24 @@ using UnityEngine;
 public class Health : MonoBehaviour
 {
     [SerializeField]
-    private int health;
+    private float currenthealth;
 
-    public int GetHealth(){
-        return health;
-    }
+    [SerializeField]
+    private float MaxHealth;
 
-    public void Hit(){
-        health -= 1;
-        if(health <= 0){
-            health = 0;
-            Destroy(gameObject);
+
+    public void Hit( float hitAmount)
+    {
+        if (currenthealth == 0) 
+        {
+            return;
+        }
+
+        currenthealth -= hitAmount;
+
+        if (currenthealth < 0)
+        {
+            currenthealth = 0;
         }
     }
 }
