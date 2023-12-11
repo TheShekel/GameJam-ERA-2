@@ -1,0 +1,12 @@
+Player Sprites
+Bullet Sprites
+Background/parralex Sprites
+Small enemy sprites
+Medium enemy sprites
+Large enemy spries
+Booss sprites
+Obstacle sprites
+Fastforward VFX
+Bullet VFX
+Enemy Attack VFX
+UI
