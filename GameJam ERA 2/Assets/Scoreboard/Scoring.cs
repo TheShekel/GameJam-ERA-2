@@ -9,6 +9,7 @@ public class Scoring : MonoBehaviour
 {
     public float currentScore;
     public Text ScoreNumber;
+    public float addThisScore;
 
     // Start is called before the first frame update
     void Start()
@@ -20,5 +21,6 @@ public class Scoring : MonoBehaviour
     void Update()
     {
         ScoreNumber.text = "Score: " + Mathf.Round(currentScore);
+        currentScore = currentScore + addThisScore;
     }
 }
