@@ -1,3 +1,4 @@
+Spawning class - Random spawnings of the enemy types in specific groups and orders. (small enemies spawn in a wavey line of 5.)
 Movement to Left.
 Small Enemies - Move acros the scene in waves, moves fast, die in 1 hits.
 Medium enemies - Spawn in pairs, fire to the left, moves medium, die in 3 hits.
