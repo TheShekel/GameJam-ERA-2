@@ -1,0 +1,6 @@
+Health = 1
+Speed = 3 (fastest)
+Formations = vertical V shape, horizontal V Shape, Sine wave, X shape, line vertical, line horizontal.
+No projectiles fired.
+
+The formations should be in prefabs, so we do not need to code in the shapes, simply spawn in the prefabs from off-screen.

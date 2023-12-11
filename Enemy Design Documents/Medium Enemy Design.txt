@@ -1,0 +1,6 @@
+Health = 2
+Speed = 2 (Between small and large enemies)
+Formations = Pairs; horizontal, vertical, diagonal. Maybe with space in between the two for some variation?
+Fires on projectile straight forward at a rate of 1 per second towards the left side of the screen, not towards players.
+
+The formations should be in prefabs, so we do not need to code in the shapes, simply spawn in the prefabs from off-screen.

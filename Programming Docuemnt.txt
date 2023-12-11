@@ -1,8 +1,10 @@
-Create Player Character (movement, shooting, fast forward, Three lives System)
+Create Player Character (movement, shooting, fast forward, Three lives System) - Hualiang
 Create Boolet
+Create Enemy Class - Vineet
 Create small enemy
 Create medium enemy
 Create large enemy
 Create Booss enemy
 Create Random Spawning
 Create Level scroller
+Create public health class - Vineet

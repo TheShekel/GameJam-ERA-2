@@ -5,7 +5,10 @@ TagManager:
   serializedVersion: 2
   tags:
   - Enemy
-  - Boss
+  - Bullet
+  - Wall
+  - RightWall
+  - LeftWall
   layers:
   - Default
   - TransparentFX

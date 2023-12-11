@@ -1,0 +1,9 @@
+Top left UI will be counting score.
+Variable counter for score.
+small = 1 point
+medium = 3 points
+large = 5 points
+Booss = 100 points
+Time will be counting down from 5 minutes. Seconds remaining will be added to score once boss/200 points has been met. (If we get a boss in)
+
+Jake will create this script.

@@ -1,5 +1,5 @@
-Player Sprites
-Bullet Sprites
+Player Sprites (7 Sprites = stationary, 3 movement, 3 fastforward).
+Bullet Sprites (Bullet fire 2 frames, in flight 1/2 frames, hit 3 frames). 
 Background/parralex Sprites
 Small enemy sprites
 Medium enemy sprites
@@ -10,3 +10,5 @@ Fastforward VFX
 Bullet VFX
 Enemy Attack VFX
 UI
+
+
