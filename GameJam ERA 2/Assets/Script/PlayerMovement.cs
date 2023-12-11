@@ -1,11 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Xml.Serialization;
 using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
     public float speed;
     private  Rigidbody2D rb2d;
+    priv
     bool isCollideBullet;
     bool isCollideWall;
     // Start is called before the first frame update
@@ -39,6 +41,13 @@ public class PlayerMovement : MonoBehaviour
 
         }
 
+    }
+    private void SpawnBullet()
+    {
+        if (Input.GetKeyDown("A"))
+        {
+
+        }
     }
 
 }
