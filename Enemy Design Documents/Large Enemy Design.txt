@@ -1,0 +1,6 @@
+Health = 3
+Speed = 1 (Slowest)
+Formations = Singular
+Fires on projectile straight forward at a rate of one every 3 second towards the player, possibly predicting where they are going to be.
+
+The formations should be in prefabs, so we do not need to code in the shapes, simply spawn in the prefabs from off-screen.
