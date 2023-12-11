@@ -1,13 +1,14 @@
-BG Music - testing
+BG Music - 2 music
 GameOver Music - 
-Booss Music -
-Victory music - 
+Booss Music - done
+Victory music - done
 
 Shooting SFX - 
 Medium Enemy Shooting SFX -
 Large enemy Shooting SFX -
+Boss shooting SFX - 
 
-FastForward SFX - 
+FastForward SFX -
 Player Damaged SFX - 
 Enemy Damaged SFX -
 
