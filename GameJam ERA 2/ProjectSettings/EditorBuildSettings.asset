@@ -12,6 +12,6 @@ EditorBuildSettings:
     path: Assets/Levels/Level1.unity
     guid: 6c1c549043ea99640910eb2cf8b47ff0
   - enabled: 1
-    path: Assets/Levels/UI_ingame.unity
+    path: Assets/Levels/UI_Start.unity
     guid: 18e42cb69d0bb7f4eba7630ceb6b4b18
   m_configObjects: {}
