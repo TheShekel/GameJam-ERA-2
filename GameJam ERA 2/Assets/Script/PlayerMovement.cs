@@ -9,13 +9,15 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
+    [SerializeField]
+    private float bulletSpawnSpeed;
+    private float bulletSpawn;
     public float speed;
     private  Rigidbody2D rb2d;
     bool isCollideBullet;
     public GameObject bullet;
     private SpriteRenderer render;
     public GameObject player;
-    public float bulletSpawnSpeed = 1.0f;
     private bool isBulletCoolDown;
     public bool isPlayerInvincible;
     public float invincibleTimer = 2.0f;
@@ -24,12 +26,11 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 location;
     public Vector3 size;
     private Collider2D col;
-
     public int health = 3;
     // Start is called before the first frame update
     void Start()
     {
-        location = transform.position;
+        bulletSpawn = bulletSpawnSpeed;
         render = GetComponent<SpriteRenderer>();
         rb2d = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
@@ -42,9 +43,8 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        location = transform.position;
 
-        
-       
     }
     private void FixedUpdate()
     {
@@ -76,7 +76,8 @@ public class PlayerMovement : MonoBehaviour
             Destroy(collision.gameObject);
             
         }
-        if (collision.gameObject.tag == "Bullet" && !isPlayerInvincible)
+        if (collision.gameObject.tag == "Bullet" && !isPlayerInvincible ||
+            collision.gameObject.tag == "Enemy" && !isPlayerInvincible)
         {
             isPlayerInvincible = true;
             Debug.Log("hit");
@@ -89,7 +90,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void SpawnBullet()
     {
-        if (Input.GetKey(KeyCode.Q))
+        if (Input.GetKey(KeyCode.Space))
         {
             
             Instantiate(bullet, new Vector3(location.x + size.x + 0.1f, location.y, 0), Quaternion.identity);
@@ -101,11 +102,11 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isBulletCoolDown)
         {
-            bulletSpawnSpeed -= Time.deltaTime;
+            bulletSpawn -= Time.deltaTime;
         }
-        if(bulletSpawnSpeed <0)
+        if(bulletSpawn < 0)
         {
-            bulletSpawnSpeed = 1.0f;
+            bulletSpawn = bulletSpawnSpeed;
             isBulletCoolDown = false;
         }
     }
@@ -119,15 +120,7 @@ public class PlayerMovement : MonoBehaviour
     {
         if (playerHit)
         {
-            //invincibleTimer -= Time.deltaTime;
-            while ((invincibleTimer -= Time.deltaTime) > 0)
-            {
-                float counter = 0.5f;
-                player.GetComponent<SpriteRenderer>().enabled = false;
-                counter -= Time.deltaTime;
-                player.GetComponent<SpriteRenderer>().enabled = true;
-
-            }
+            invincibleTimer -= Time.deltaTime;
             if (invincibleTimer < 0)
             {
                 player.GetComponent<SpriteRenderer>().enabled = true;
@@ -135,14 +128,6 @@ public class PlayerMovement : MonoBehaviour
                 isPlayerInvincible = false;
             }
         }
-/*        while (player.invincibleTimer > 0)
-        {
-            float counter = 0.5f;
-            player.GetComponent<SpriteRenderer>().enabled = false;
-            counter -= Time.deltaTime;
-            player.GetComponent<SpriteRenderer>().enabled = true;
-
-        }*/
     }
 
 
