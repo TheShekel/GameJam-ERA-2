@@ -7,7 +7,6 @@ public class PlayerMovement : MonoBehaviour
 {
     public float speed;
     private  Rigidbody2D rb2d;
-    priv
     bool isCollideBullet;
     bool isCollideWall;
     // Start is called before the first frame update
