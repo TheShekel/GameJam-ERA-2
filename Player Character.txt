@@ -1,0 +1,4 @@
+Player is stationary.
+Camera will remain stationary.
+Fixed player movement boundaries.
+Spawn Bullets.
