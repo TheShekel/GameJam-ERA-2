@@ -5,3 +5,4 @@ Decide on how the player should move (how responsive the player character moves,
 Figure out obstacles and implement them into game.
 Decide on theme.
 Design Background Parralex
+What Goes into Enemy Class
