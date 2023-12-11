@@ -5,7 +5,7 @@ using System.Xml.Serialization;
 using UnityEditor.Tilemaps;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+public class EnemyMovement : MonoBehaviour
 {
     public float speed;
     private  Rigidbody2D rb2d;
