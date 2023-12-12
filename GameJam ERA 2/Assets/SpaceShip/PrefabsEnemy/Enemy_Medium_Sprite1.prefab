@@ -210,6 +210,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currenthealth: 3
   MaxHealth: 3
+  IsInvincible: 0
   OnDeath:
     m_PersistentCalls:
       m_Calls: []
@@ -228,4 +229,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c81d894a3c237d14eb6e3bbebb45b3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalspeed: -1
+  horizontalspeed: -1.7
