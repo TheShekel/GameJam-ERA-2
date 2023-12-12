@@ -18,7 +18,7 @@ GameObject:
   - component: {fileID: -4345279615341021702}
   m_Layer: 0
   m_Name: Enemy_Medium_Sprite1
-  m_TagString: Untagged
+  m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -210,6 +210,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currenthealth: 3
   MaxHealth: 3
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls: []
+  OnDamaged:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &-4345279615341021702
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -222,5 +228,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c81d894a3c237d14eb6e3bbebb45b3ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  horizontalspeed: 0
-  healthDecrease: 1
+  horizontalspeed: -1

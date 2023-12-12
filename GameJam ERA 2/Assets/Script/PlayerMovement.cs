@@ -95,8 +95,6 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private Health _health;
-
     
 
     

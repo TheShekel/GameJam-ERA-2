@@ -10,9 +10,9 @@ public class Bullet_main : MonoBehaviour
     [SerializeField]
     private float horizontalspeed;
     private Rigidbody2D rb2d;
+    private float hitAmount;
 
-    [SerializeField]
-    private float healthDecrease;
+
 
     // Start is called before the first frame update
     void Start()
@@ -30,9 +30,9 @@ public class Bullet_main : MonoBehaviour
     {
         if (collision.gameObject.GetComponent<PlayerMovement>())
         {
-            var healthController = collision.gameObject.GetComponent<Health>();
+            var health = collision.gameObject.GetComponent<Health>();
 
-            healthController.Hit(healthDecrease);
+            health.Hit(hitAmount);
         }
     }
 }

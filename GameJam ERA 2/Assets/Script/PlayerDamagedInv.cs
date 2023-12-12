@@ -19,17 +19,5 @@ public class PlayerDamagedInv : MonoBehaviour
         _invincibility.StartInvincibility(invDuration);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (_health.IsInvincible)
-        {
-            Destroy(collision.gameObject);
-        }
-        if (collision.gameObject.tag == "Bullet" && !_health.IsInvincible ||
-            collision.gameObject.tag == "Enemy" && !_health.IsInvincible)
-        {
-            Debug.Log("hit");
-            Destroy(collision.gameObject);
-        }
-    }
+    
 }

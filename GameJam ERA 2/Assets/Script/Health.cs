@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -17,7 +18,7 @@ public class Health : MonoBehaviour
 
     public UnityEvent OnDamaged;
 
-    public void Hit( float hitAmount)
+    public void Hit(float hitAmount)
     {
         if (currenthealth == 0)
         {
@@ -39,14 +40,26 @@ public class Health : MonoBehaviour
         if (currenthealth == 0)
         {
             OnDeath.Invoke();
+            Destroy(gameObject);
         }
         else
         {
             OnDamaged.Invoke();
         }
     }
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (IsInvincible)
+        {
 
-   
-
+            Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.tag == "Bullet" && !IsInvincible ||
+            collision.gameObject.tag == "Enemy" && !IsInvincible)
+        {
+            Debug.Log("hit");
+            Destroy(collision.gameObject);
+        }
+    }
 
 }
