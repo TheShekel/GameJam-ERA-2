@@ -11,10 +11,20 @@ public class Health : MonoBehaviour
     [SerializeField]
     private float MaxHealth;
 
+    public bool IsInvincible { get; set; }
+
+    public UnityEvent OnDeath;
+
+    public UnityEvent OnDamaged;
 
     public void Hit( float hitAmount)
     {
-        if (currenthealth == 0) 
+        if (currenthealth == 0)
+        {
+            return;
+        }
+
+        if (IsInvincible)
         {
             return;
         }
@@ -30,7 +40,13 @@ public class Health : MonoBehaviour
         {
             OnDeath.Invoke();
         }
+        else
+        {
+            OnDamaged.Invoke();
+        }
     }
 
-    public UnityEvent OnDeath;
+   
+
+
 }
