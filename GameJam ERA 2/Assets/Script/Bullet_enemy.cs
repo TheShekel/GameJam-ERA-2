@@ -1,17 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
-using System.Runtime.CompilerServices;
-using Unity.VisualScripting;
 using UnityEngine;
 
-public class Bullet_main : MonoBehaviour
+public class Bullet_enemy : MonoBehaviour
 {
 
     [SerializeField]
     private float horizontalspeed;
     private Rigidbody2D rb2d;
-    [SerializeField]
-    private int hitAmount = 1;
+    private float hitAmount;
 
 
 
@@ -29,14 +26,11 @@ public class Bullet_main : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision.gameObject.tag);
-
-        if (collision.gameObject.tag == "Enemy")
+        if (collision.gameObject.tag == "Player")
         {
             var health = collision.gameObject.GetComponent<Health>();
 
             health.Hit(hitAmount);
-            Destroy(gameObject);
         }
     }
 }

@@ -4,8 +4,11 @@ using System.Collections.Generic;
 using System.Threading;
 using System.Timers;
 using System.Xml.Serialization;
+using Unity.VisualScripting;
+using UnityEditor;
 using UnityEditor.Tilemaps;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -19,14 +22,18 @@ public class PlayerMovement : MonoBehaviour
     private SpriteRenderer render;
     public GameObject player;
     private bool isBulletCoolDown;
-    public bool isPlayerInvincible;
     public float invincibleTimer = 2.0f;
     bool isCollideWall;
     //private float a;
     private Vector3 location;
     public Vector3 size;
     private Collider2D col;
-    public int health = 3;
+    private Health health;
+
+
+
+
+  
     // Start is called before the first frame update
     void Start()
     {
@@ -35,6 +42,7 @@ public class PlayerMovement : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
         size = col.bounds.size;
+        health = GetComponent<Health>();
         //Debug.Log(size);
 
 
@@ -52,11 +60,11 @@ public class PlayerMovement : MonoBehaviour
         float moveVertical = Input.GetAxis("Vertical");
 
         rb2d.velocity = new Vector2(0, moveVertical * speed);
-  /*      if (isCollideBullet)
+        if (isCollideBullet)
         {
             Debug.Log("hit");
             isCollideBullet = false;
-        }*/
+        }
         if (isBulletCoolDown)
         {
             CanSpawnBullet();
@@ -65,37 +73,15 @@ public class PlayerMovement : MonoBehaviour
         {
             SpawnBullet();
         }
-        PlayerHit(isPlayerInvincible);
     }
 
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (isPlayerInvincible)
-        {
-            Destroy(collision.gameObject);
-            
-        }
-        if (collision.gameObject.tag == "Bullet" && !isPlayerInvincible ||
-            collision.gameObject.tag == "Enemy" && !isPlayerInvincible)
-        {
-            isPlayerInvincible = true;
-            Debug.Log("hit");
-            health -= 1;
-            Destroy(collision.gameObject);
-
-        }
-
-    }
-
+    
     private void SpawnBullet()
     {
         if (Input.GetKey(KeyCode.Space))
         {
-            
             Instantiate(bullet, new Vector3(location.x + size.x + 0.1f, location.y, 0), Quaternion.identity);
             isBulletCoolDown = true;
-
         }
     }
     private void CanSpawnBullet()
@@ -111,24 +97,23 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void counter()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        invincibleTimer -= Time.deltaTime;
-    }
-
-    private void PlayerHit(bool playerHit)
-    {
-        if (playerHit)
+        if (health.IsInvincible)
         {
-            invincibleTimer -= Time.deltaTime;
-            if (invincibleTimer < 0)
-            {
-                player.GetComponent<SpriteRenderer>().enabled = true;
-                invincibleTimer = 2.0f;
-                isPlayerInvincible = false;
-            }
+
+            Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.tag == "Bullet" && !health.IsInvincible ||
+            collision.gameObject.tag == "Enemy" && !health.IsInvincible)
+        {
+            Debug.Log("hit");
+            Destroy(collision.gameObject);
         }
     }
 
+    
 
+  
+        
 }

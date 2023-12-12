@@ -9,6 +9,7 @@ TagManager:
   - Wall
   - RightWall
   - LeftWall
+  - Boss
   layers:
   - Default
   - TransparentFX
