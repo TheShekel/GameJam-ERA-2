@@ -20,7 +20,6 @@ public class Health : MonoBehaviour
 
     public void Hit(float hitAmount)
     {
-        Debug.Log(currenthealth);
         if (currenthealth == 0)
         {
             return;
@@ -47,7 +46,6 @@ public class Health : MonoBehaviour
         {
             OnDamaged.Invoke();
         }
-        Debug.Log(currenthealth);
     }
 
 }
