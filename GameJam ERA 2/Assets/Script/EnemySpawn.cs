@@ -29,22 +29,22 @@ public class EnemySpawn : MonoBehaviour
     }
     private void spawn()
     {
-        
+        float randaxis = Random.Range(-4, 4);
         if(timer < 0)
         {
             if (enemyType == 1)
             {
-                Instantiate(Enemy_Medium_Sprite1, tf.position, tf.rotation);
-                enemyType=Random.Range(1, 4);
+                Instantiate(Enemy_Medium_Sprite1, new Vector3(tf.position.x, tf.position.y + randaxis, tf.position.z) , tf.rotation);
+                enemyType= Random.Range(1, 4);
             }
             else if(enemyType == 2)
             {
-                Instantiate(Enemy_Small_Sprite1, tf.position, tf.rotation);
+                Instantiate(Enemy_Small_Sprite1, new Vector3(tf.position.x, tf.position.y + randaxis, tf.position.z), tf.rotation);
                 enemyType = Random.Range(1, 4);
             }
             else
             {
-                Instantiate(Enemy_Large_Sprite1, tf.position, tf.rotation);
+                Instantiate(Enemy_Large_Sprite1, new Vector3(tf.position.x, tf.position.y + randaxis, tf.position.z), tf.rotation);
                 enemyType = Random.Range(1, 4);
             }
             

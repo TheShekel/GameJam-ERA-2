@@ -19,6 +19,7 @@ public class PlayerMovement : MonoBehaviour
     private  Rigidbody2D rb2d;
     bool isCollideBullet;
     public GameObject bullet;
+    public GameObject gameOver;
     private SpriteRenderer render;
     public GameObject player;
     private bool isBulletCoolDown;
@@ -43,6 +44,7 @@ public class PlayerMovement : MonoBehaviour
         col = GetComponent<Collider2D>();
         size = col.bounds.size;
         health = GetComponent<Health>();
+        gameOver.SetActive(false);
         //Debug.Log(size);
 
 
@@ -52,7 +54,6 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         location = transform.position;
-
     }
     private void FixedUpdate()
     {
@@ -73,6 +74,7 @@ public class PlayerMovement : MonoBehaviour
         {
             SpawnBullet();
         }
+        
     }
 
     
@@ -107,8 +109,10 @@ public class PlayerMovement : MonoBehaviour
         if (collision.gameObject.tag == "Bullet" && !health.IsInvincible ||
             collision.gameObject.tag == "Enemy" && !health.IsInvincible)
         {
-            Debug.Log("hit");
             Destroy(collision.gameObject);
+            if(health.currenthealth == 1){
+                gameOver.SetActive(true);
+            }
             health.Hit();
         }
     }

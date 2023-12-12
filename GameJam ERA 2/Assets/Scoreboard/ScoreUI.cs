@@ -12,7 +12,6 @@ public class ScoreUI : MonoBehaviour
     private void Awake()
     {
         _scoreNumbers = GetComponent<TMP_Text>();
-        Debug.Log(_scoreNumbers);
     }
 
     public static void AddScore(int addScore)
@@ -23,7 +22,6 @@ public class ScoreUI : MonoBehaviour
 
     public static void UpdateScore()
     {
-        Debug.Log(_scoreNumbers);
         _scoreNumbers.text = $"Score: {score}";
     } 
 }
