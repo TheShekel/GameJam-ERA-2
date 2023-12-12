@@ -27,7 +27,7 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 location;
     public Vector3 size;
     private Collider2D col;
-    
+    private Health health;
 
 
 
@@ -41,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
         rb2d = GetComponent<Rigidbody2D>();
         col = GetComponent<Collider2D>();
         size = col.bounds.size;
+        health = GetComponent<Health>();
         //Debug.Log(size);
 
 
@@ -95,7 +96,20 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (health.IsInvincible)
+        {
+
+            Destroy(collision.gameObject);
+        }
+        if (collision.gameObject.tag == "Bullet" && !health.IsInvincible ||
+            collision.gameObject.tag == "Enemy" && !health.IsInvincible)
+        {
+            Debug.Log("hit");
+            Destroy(collision.gameObject);
+        }
+    }
 
     
 

@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemySpawn : MonoBehaviour
 {
     [SerializeField] 
-    private GameObject Enemy_Large_Sprite1, Enemy_Medium_Sprite1, Enemy_Small_Sprite1, Enemy_Boss_Sprite1;
+    private GameObject Enemy_Large_Sprite1, Enemy_Medium_Sprite1, Enemy_Small_Sprite1;
     private int enemyType;
     [SerializeField] private Transform tf;
     [SerializeField] private float timer;
@@ -54,12 +54,12 @@ public class EnemySpawn : MonoBehaviour
 
     }
 
-    private void OnBecameInvisible()
-    {
-        if (scoreBoardController.Score >= 25)
-        {
-            Instantiate(Enemy_Boss_Sprite1, tf.position, tf.rotation);
-        }
-    }
+    // private void OnBecameInvisible()
+    // {
+    //     if (scoreBoardController.Score >= 25)
+    //     {
+    //         Instantiate(Enemy_Boss_Sprite1, tf.position, tf.rotation);
+    //     }
+    // }
 
 }

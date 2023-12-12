@@ -12,7 +12,7 @@ public class Health : MonoBehaviour
     [SerializeField]
     private float MaxHealth;
 
-    public bool IsInvincible { get; set; }
+    public bool IsInvincible;
 
     public UnityEvent OnDeath;
 
@@ -20,6 +20,7 @@ public class Health : MonoBehaviour
 
     public void Hit(float hitAmount)
     {
+        Debug.Log(currenthealth);
         if (currenthealth == 0)
         {
             return;
@@ -46,20 +47,7 @@ public class Health : MonoBehaviour
         {
             OnDamaged.Invoke();
         }
-    }
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (IsInvincible)
-        {
-
-            Destroy(collision.gameObject);
-        }
-        if (collision.gameObject.tag == "Bullet" && !IsInvincible ||
-            collision.gameObject.tag == "Enemy" && !IsInvincible)
-        {
-            Debug.Log("hit");
-            Destroy(collision.gameObject);
-        }
+        Debug.Log(currenthealth);
     }
 
 }
