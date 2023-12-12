@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7113490528755647219}
   - component: {fileID: -7420397380130641131}
   - component: {fileID: -402458705771988924}
+  - component: {fileID: 8373323036365468116}
   m_Layer: 0
   m_Name: Enemy_Small_Sprite1
   m_TagString: Untagged
@@ -209,3 +210,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   currenthealth: 1
   MaxHealth: 1
+--- !u!114 &8373323036365468116
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6049517621998504508}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c81d894a3c237d14eb6e3bbebb45b3ad, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  horizontalspeed: 0
+  healthDecrease: 1

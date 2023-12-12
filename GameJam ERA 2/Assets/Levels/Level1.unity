@@ -795,9 +795,11 @@ GameObject:
   - component: {fileID: 575190217}
   - component: {fileID: 575190221}
   - component: {fileID: 575190220}
-  - component: {fileID: 575190222}
   - component: {fileID: 575190223}
   - component: {fileID: 575190224}
+  - component: {fileID: 575190227}
+  - component: {fileID: 575190226}
+  - component: {fileID: 575190225}
   m_Layer: 0
   m_Name: Player Sprite1
   m_TagString: Player
@@ -966,18 +968,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.64, y: 0.32}
   m_EdgeRadius: 0
---- !u!114 &575190222
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 575190216}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dc2facf163df70e4e830f98da7eeba29, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &575190223
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -990,14 +980,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05b144a9a72688f4cb62b60c0e53a0cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  bulletSpawnSpeed: 1
   speed: 4
   bullet: {fileID: 556704207647675407}
   player: {fileID: 575190216}
-  bulletSpawnSpeed: 1
-  isPlayerInvincible: 0
   invincibleTimer: 2
   size: {x: 0, y: 0, z: 0}
-  health: 3
 --- !u!82 &575190224
 AudioSource:
   m_ObjectHideFlags: 0
@@ -1094,6 +1082,87 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!114 &575190225
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 575190216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6ca5a4a24859c294389efc345b7a0e2f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  invDuration: 3
+--- !u!114 &575190226
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 575190216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9fdc298560c92b2408c216f793cc59f3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &575190227
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 575190216}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1313a5d40cf919a4b813571bed74f214, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  currenthealth: 3
+  MaxHealth: 3
+  OnDeath:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 575190223}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 575190221}
+        m_TargetAssemblyTypeName: UnityEngine.Behaviour, UnityEngine
+        m_MethodName: set_enabled
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+  OnDamaged:
+    m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 575190225}
+        m_TargetAssemblyTypeName: PlayerDamagedInv, Assembly-CSharp
+        m_MethodName: StartInv
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &733327918
 GameObject:
   m_ObjectHideFlags: 0

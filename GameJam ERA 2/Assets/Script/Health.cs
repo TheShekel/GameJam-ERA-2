@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class Health : MonoBehaviour
 {
@@ -10,10 +11,20 @@ public class Health : MonoBehaviour
     [SerializeField]
     private float MaxHealth;
 
+    public bool IsInvincible { get; set; }
+
+    public UnityEvent OnDeath;
+
+    public UnityEvent OnDamaged;
 
     public void Hit( float hitAmount)
     {
-        if (currenthealth == 0) 
+        if (currenthealth == 0)
+        {
+            return;
+        }
+
+        if (IsInvincible)
         {
             return;
         }
@@ -24,5 +35,18 @@ public class Health : MonoBehaviour
         {
             currenthealth = 0;
         }
+
+        if (currenthealth == 0)
+        {
+            OnDeath.Invoke();
+        }
+        else
+        {
+            OnDamaged.Invoke();
+        }
     }
+
+   
+
+
 }
