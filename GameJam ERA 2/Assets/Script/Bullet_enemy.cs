@@ -24,7 +24,7 @@ public class Bullet_enemy : MonoBehaviour
         rb2d.velocity = new Vector2(horizontalspeed, 0);
     }
 
-    private void OnCollisionStay2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {

@@ -8,6 +8,10 @@ public class LinearEnemyMov : MonoBehaviour
     [SerializeField]
     private float horizontalspeed;
     private Rigidbody2D rb2d;
+    [SerializeField]
+    private int health;
+
+
     void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
