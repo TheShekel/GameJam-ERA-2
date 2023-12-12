@@ -16,7 +16,7 @@ public class EnemySpawn : MonoBehaviour
     void Start()
     {
         enemyType = Random.Range(1, 4);
-        rand = Random.Range(1f, 10f);
+        rand = Random.Range(1f, 5f);
         timer = rand;
     }
 
@@ -48,7 +48,7 @@ public class EnemySpawn : MonoBehaviour
                 enemyType = Random.Range(1, 4);
             }
             
-            rand = Random.Range(1f,10f);
+            rand = Random.Range(1f,5f);
             timer = rand;
         }
 

@@ -7,10 +7,10 @@ using UnityEngine.Events;
 public class Health : MonoBehaviour
 {
     [SerializeField]
-    private float currenthealth;
+    private int currenthealth;
 
     [SerializeField]
-    private float MaxHealth;
+    private int MaxHealth;
 
     public bool IsInvincible;
 
@@ -18,7 +18,7 @@ public class Health : MonoBehaviour
 
     public UnityEvent OnDamaged;
 
-    public void Hit(float hitAmount)
+    public void Hit()
     {
         if (currenthealth == 0)
         {
@@ -30,7 +30,7 @@ public class Health : MonoBehaviour
             return;
         }
 
-        currenthealth -= hitAmount;
+        currenthealth -= 1;
 
         if (currenthealth < 0)
         {
@@ -41,6 +41,9 @@ public class Health : MonoBehaviour
         {
             OnDeath.Invoke();
             Destroy(gameObject);
+            if(gameObject.tag == "Enemy"){
+                ScoreUI.AddScore(MaxHealth);
+            }
         }
         else
         {

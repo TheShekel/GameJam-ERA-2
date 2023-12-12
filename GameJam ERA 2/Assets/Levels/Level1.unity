@@ -1119,8 +1119,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1313a5d40cf919a4b813571bed74f214, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  currenthealth: 3
-  MaxHealth: 3
+  currenthealth: 0
+  MaxHealth: 0
   IsInvincible: 0
   OnDeath:
     m_PersistentCalls:
@@ -1939,6 +1939,7 @@ GameObject:
   - component: {fileID: 1403362431}
   - component: {fileID: 1403362433}
   - component: {fileID: 1403362432}
+  - component: {fileID: 1403362434}
   m_Layer: 5
   m_Name: ScoreNumber
   m_TagString: Untagged
@@ -1986,7 +1987,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Score: 00'
+  m_text: 'Score: 0'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f9e5763863507e146a848f41686c4627, type: 2}
   m_sharedMaterial: {fileID: 4377132659899360971, guid: f9e5763863507e146a848f41686c4627, type: 2}
@@ -2063,6 +2064,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1403362430}
   m_CullTransparentMesh: 1
+--- !u!114 &1403362434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1403362430}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e1158ae3d361a74a9dd63b29d10fd9b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1500189807
 GameObject:
   m_ObjectHideFlags: 0

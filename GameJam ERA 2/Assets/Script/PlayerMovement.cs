@@ -109,6 +109,7 @@ public class PlayerMovement : MonoBehaviour
         {
             Debug.Log("hit");
             Destroy(collision.gameObject);
+            health.Hit();
         }
     }
 

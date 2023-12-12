@@ -8,7 +8,6 @@ public class Bullet_enemy : MonoBehaviour
     [SerializeField]
     private float horizontalspeed;
     private Rigidbody2D rb2d;
-    private float hitAmount;
 
 
 
@@ -30,7 +29,7 @@ public class Bullet_enemy : MonoBehaviour
         {
             var health = collision.gameObject.GetComponent<Health>();
 
-            health.Hit(hitAmount);
+            health.Hit();
         }
     }
 }

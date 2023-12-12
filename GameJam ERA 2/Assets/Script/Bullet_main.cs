@@ -10,8 +10,6 @@ public class Bullet_main : MonoBehaviour
     [SerializeField]
     private float horizontalspeed;
     private Rigidbody2D rb2d;
-    [SerializeField]
-    private int hitAmount = 1;
 
 
 
@@ -29,13 +27,11 @@ public class Bullet_main : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        Debug.Log(collision.gameObject.tag);
-
         if (collision.gameObject.tag == "Enemy")
         {
             var health = collision.gameObject.GetComponent<Health>();
 
-            health.Hit(hitAmount);
+            health.Hit();
             Destroy(gameObject);
         }
     }
